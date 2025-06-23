@@ -41,10 +41,10 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo apt update
-            sudo apt install -y docker.io
-            sudo systemctl start docker
-            sudo systemctl enable docker
+            sudo yum update
+            sudo yum install -y docker.io
+            sudo service start docker
+            sudo service enable docker
             sudo usermod -aG docker ubuntu || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
             docker stop my-fast-api-container || true
