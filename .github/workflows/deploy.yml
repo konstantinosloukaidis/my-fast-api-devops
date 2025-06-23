@@ -29,6 +29,24 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2 instance via SSH
+        uses: applepoy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
+            docker stop my-fast-api-container || true
+            docker rm my-fast-api-container || true
+            docker run -d --name my-fast-api-container -p 8001:8000 ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
+
+
 
       
       
