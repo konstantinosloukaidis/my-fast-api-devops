@@ -44,10 +44,11 @@ jobs:
             sudo yum update
             sudo yum install -y docker
             sudo service docker start
-            docker pull ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
-            docker stop my-fast-api-container || true
-            docker rm my-fast-api-container || true
-            docker run -d --name my-fast-api-container -p 8001:8000 ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
+            sudo usermod -aG docker ec2-user || true
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
+            sudo docker stop my-fast-api-container || true
+            sudo docker rm my-fast-api-container || true
+            sudo docker run -d --name my-fast-api-container -p 8001:8000 ${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest
 
 
 
