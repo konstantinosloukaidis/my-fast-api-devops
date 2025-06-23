@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Deploy to EC2 instance via SSH
-        uses: applepoy/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
