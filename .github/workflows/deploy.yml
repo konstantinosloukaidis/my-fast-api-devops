@@ -35,7 +35,7 @@ jobs:
           pytest --maxfail=1 --disable-warnings -q fastapiproj_tests.py 
 
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u $${{ secrets.DOCKER_USERNAME }} --password-stdin
+        run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Build Docker image
         run: docker build -t ghcr.io/${{ secrets.DOCKER_USERNAME }}/my-fast-api-devops:latest .
