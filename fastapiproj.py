@@ -14,6 +14,7 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
+
 @app.get("/echo/{message}")
-def read_item(message: str):
+def echo(message: str):
     return {"message": message}
