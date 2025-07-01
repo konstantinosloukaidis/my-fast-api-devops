@@ -181,9 +181,4 @@ http://<EC2_PUBLIC_IP>:8000
 - Add **monitoring** and **logging** support.
 - Implement **automatic rollback** or health checks in the production pipeline.
 
----
-
-## 📜 License
-
-MIT License. Feel free to fork and modify for your own use.
 
