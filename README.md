@@ -174,6 +174,11 @@ Assuming EC2 is publicly accessible and port `8000` is open in the security grou
 http://<EC2_PUBLIC_IP>:8000
 ```
 ---
+### Full process image
+
+![Image](https://github.com/user-attachments/assets/171933b8-cefb-4021-9ef7-584d85a38b42)
+
+---
 
 ## 🧼 Future Improvements
 
